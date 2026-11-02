@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catch You — удалённые сообщения Telegram</title>
+<meta name="description" content="Telegram-бот Catch You присылает сообщения, которые собеседники удалили или изменили, и сохраняет одноразовые фото и видео. 199 ₽ за 30 дней, первые 3 дня бесплатно.">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#000;--surface:#1c1c1e;--raised:#2c2c2e;--ink:#fff;--muted:#8e8e93;--rule:#38383a;--accent:#4f9cf9;--primary:#3e88f7;--on-primary:#fff;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--ground:#f2f2f7;--surface:#fff;--raised:#f2f2f7;--ink:#000;--muted:#6e6e73;--rule:#e5e5ea;--accent:#2f7fe0;--primary:#3390ec;--on-primary:#fff;color-scheme:light}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:500 17px/1.5 Manrope,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:720px;margin:0 auto;padding:0 16px 48px}
+a{color:var(--accent);text-decoration:none}
+.hero{text-align:center;padding:64px 0 32px}
+.hero img{width:96px;height:96px;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+h1{font-size:clamp(34px,8vw,48px);line-height:1.08;margin:24px 0 12px;font-weight:800;letter-spacing:-.02em}
+.lead{color:var(--muted);font-size:19px;max-width:520px;margin:0 auto}
+.cta{display:inline-block;margin-top:28px;background:var(--primary);color:var(--on-primary);font-weight:800;font-size:17px;padding:16px 28px;border-radius:16px}
+.note{color:var(--muted);font-size:14px;margin-top:12px}
+h2{font-size:24px;font-weight:800;margin:48px 0 14px;letter-spacing:-.01em}
+.card{background:var(--surface);border-radius:20px;overflow:hidden}
+.row{display:flex;gap:14px;padding:16px 18px;align-items:flex-start}
+.row+.row{border-top:1px solid var(--rule)}
+.row .i{flex:none;font-size:24px;line-height:1.3}
+.row b{display:block;font-weight:700}
+.row span{color:var(--muted);font-size:15px}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:s;display:flex;gap:14px;padding:14px 18px}
+.steps li+li{border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--raised);color:var(--accent);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.price{padding:24px 20px;text-align:center}
+.price .sum{font-size:44px;font-weight:800;letter-spacing:-.02em}
+.price .per{color:var(--muted)}
+.price ul{list-style:none;padding:0;margin:18px 0 0;text-align:left}
+.price li{padding:8px 0;border-top:1px solid var(--rule);font-size:15px}
+details{background:var(--surface);border-radius:16px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--muted)}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);font-size:15px;margin:10px 0 0}
+footer{color:var(--muted);font-size:14px;line-height:1.6;border-top:1px solid var(--rule);margin-top:48px;padding-top:20px}
+footer a{font-weight:700}
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <img src="logo.jpg" alt="Логотип Invisible">
+    <h1>Catch You</h1>
+    <p class="lead">Telegram-бот, который присылает сообщения, удалённые или изменённые собеседниками, и сохраняет одноразовые фото и видео.</p>
+    <a class="cta" href="https://t.me/catchinvisiblebot">Открыть бота в Telegram</a>
+    <p class="note">Первые 3 дня бесплатно, дальше 199 ₽ за 30 дней</p>
+  </section>
+
+  <h2>Что умеет</h2>
+  <div class="card">
+    <div class="row"><span class="i">🗑</span><div><b>Удалённые сообщения</b><span>Собеседник удалил сообщение, а бот сразу присылает его вам вместе с фото, видео или голосовым.</span></div></div>
+    <div class="row"><span class="i">✏️</span><div><b>Изменённые сообщения</b><span>Показывает, что было до правки и что стало после.</span></div></div>
+    <div class="row"><span class="i">🔥</span><div><b>Одноразовые фото и видео</b><span>Ответьте на такое сообщение до открытия, и бот сохранит копию.</span></div></div>
+    <div class="row"><span class="i">💬</span><div><b>Мини-приложение</b><span>Все удалённые собраны по чатам, как в Telegram. Есть поиск по имени и тексту.</span></div></div>
+    <div class="row"><span class="i">📊</span><div><b>Статистика</b><span>Кто чаще удаляет сообщения и сколько новых людей вам написали. Полезно, если вы принимаете заказы в Telegram.</span></div></div>
+    <div class="row"><span class="i">🌙</span><div><b>Автоответ и напоминания</b><span>Бот отвечает за вас в выбранные часы и напоминает о чатах, которые вы забыли прочитать.</span></div></div>
+  </div>
+
+  <h2>Как подключить</h2>
+  <div class="card">
+    <ol class="steps">
+      <li>Откройте бота <a href="https://t.me/catchinvisiblebot">@catchinvisiblebot</a> и нажмите «Старт».</li>
+      <li>В Telegram откройте Настройки → Telegram для бизнеса → Чат-боты и введите @catchinvisiblebot. Нужен Telegram Premium.</li>
+      <li>Дайте доступ к личным чатам. Через 3 дня бот предложит оформить подписку.</li>
+    </ol>
+  </div>
+
+  <h2>Стоимость</h2>
+  <div class="card price">
+    <div class="sum">199 ₽</div>
+    <div class="per">за 30 дней доступа ко всем функциям</div>
+    <ul>
+      <li>🎁 Первые 3 дня бесплатно</li>
+      <li>💳 Оплата через СБП или банковской картой, платежи принимает ЮKassa</li>
+      <li>🔄 Автопродление можно выключить в любой момент: команда /subscription в боте или «Настройки → Подписка» в мини-приложении</li>
+      <li>↩️ Деньги за неиспользованные дни возвращаются по запросу на почту</li>
+    </ul>
+  </div>
+
+  <h2>Вопросы</h2>
+  <details><summary>Безопасно ли это?</summary><p>Бот видит только личные чаты, к которым вы сами дали доступ в Telegram для бизнеса. Сообщения хранятся на сервере 3 дня, файлы — 1 день, потом удаляются автоматически. Никому не передаются.</p></details>
+  <details><summary>Узнает ли собеседник?</summary><p>Нет. Бот ничего не пишет в ваши чаты, если вы сами не включили автоответ.</p></details>
+  <details><summary>Как отменить подписку?</summary><p>Выключите автопродление командой /subscription или в мини-приложении. Подписка проработает до конца оплаченного срока и больше не продлится.</p></details>
+  <details><summary>Как вернуть деньги?</summary><p>Напишите на <a href="mailto:yapparov.george@gmail.com">yapparov.george@gmail.com</a>. Вернём деньги за неиспользованные дни в течение 10 дней тем же способом, которым вы платили.</p></details>
+
+  <footer>
+    Исполнитель: Яппаров Егор Русланович, плательщик налога на профессиональный доход (самозанятый), ИНН 773575134922.<br>
+    Почта: <a href="mailto:yapparov.george@gmail.com">yapparov.george@gmail.com</a> · Telegram: <a href="https://t.me/catchinvisiblebot">@catchinvisiblebot</a><br>
+    <a href="offer.html">Публичная оферта</a>
+  </footer>
+</main>
+</body>
+</html>
