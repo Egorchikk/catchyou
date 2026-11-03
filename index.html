@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catch You — удалённые сообщения Telegram</title>
-<meta name="description" content="Telegram-бот Catch You присылает сообщения, которые собеседники удалили или изменили, и сохраняет одноразовые фото и видео. 199 ₽ за 30 дней, первые 3 дня бесплатно.">
+<meta name="description" content="Telegram-бот Catch You присылает сообщения, которые собеседники удалили или изменили, и сохраняет одноразовые фото и видео. от 79 ₽ в месяц, первые 3 дня бесплатно.">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,11 +33,18 @@ h2{font-size:24px;font-weight:800;margin:48px 0 14px;letter-spacing:-.01em}
 .steps li{counter-increment:s;display:flex;gap:14px;padding:14px 18px}
 .steps li+li{border-top:1px solid var(--rule)}
 .steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--raised);color:var(--accent);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
-.price{padding:24px 20px;text-align:center}
-.price .sum{font-size:44px;font-weight:800;letter-spacing:-.02em}
-.price .per{color:var(--muted)}
-.price ul{list-style:none;padding:0;margin:18px 0 0;text-align:left}
-.price li{padding:8px 0;border-top:1px solid var(--rule);font-size:15px}
+.plan{display:flex;align-items:center;gap:12px;padding:16px 18px}
+.plan+.plan{border-top:1px solid var(--rule)}
+.plan .t{flex:1;min-width:0}
+.plan .t b{display:block;font-weight:700}
+.plan .t span{color:var(--muted);font-size:15px}
+.off{flex:none;background:var(--primary);color:var(--on-primary);border-radius:8px;font-size:13px;font-weight:800;padding:2px 8px}
+.pr{flex:none;text-align:right;font-weight:800;font-size:19px}
+.pr s{display:block;color:var(--muted);font-weight:500;font-size:13px}
+.card+.card{margin-top:10px}
+.terms{list-style:none;margin:0;padding:6px 18px}
+.terms li{padding:10px 0;font-size:15px}
+.terms li+li{border-top:1px solid var(--rule)}
 details{background:var(--surface);border-radius:16px;padding:14px 18px;margin-bottom:10px}
 summary{cursor:pointer;font-weight:700;list-style:none}
 summary::-webkit-details-marker{display:none}
@@ -55,7 +62,7 @@ footer a{font-weight:700}
     <h1>Catch You</h1>
     <p class="lead">Telegram-бот, который присылает сообщения, удалённые или изменённые собеседниками, и сохраняет одноразовые фото и видео.</p>
     <a class="cta" href="https://t.me/catchinvisiblebot">Открыть бота в Telegram</a>
-    <p class="note">Первые 3 дня бесплатно, дальше 199 ₽ за 30 дней</p>
+    <p class="note">Первые 3 дня бесплатно, дальше от 79 ₽ в месяц</p>
   </section>
 
   <h2>Что умеет</h2>
@@ -73,15 +80,20 @@ footer a{font-weight:700}
     <ol class="steps">
       <li>Откройте бота <a href="https://t.me/catchinvisiblebot">@catchinvisiblebot</a> и нажмите «Старт».</li>
       <li>В Telegram откройте Настройки → Telegram для бизнеса → Чат-боты и введите @catchinvisiblebot. Нужен Telegram Premium.</li>
-      <li>Дайте доступ к личным чатам. Через 3 дня бот предложит оформить подписку.</li>
+      <li>Дайте доступ к личным чатам. Через 3 дня бот предложит выбрать тариф.</li>
     </ol>
   </div>
 
-  <h2>Стоимость</h2>
-  <div class="card price">
-    <div class="sum">199 ₽</div>
-    <div class="per">за 30 дней доступа ко всем функциям</div>
-    <ul>
+  <h2>Тарифы</h2>
+  <div class="card">
+    <div class="plan"><div class="t"><b>1 месяц</b><span>30 дней</span></div><div class="pr">99 ₽</div></div>
+    <div class="plan"><div class="t"><b>3 месяца</b><span>89 ₽ в месяц</span></div><span class="off">−10%</span><div class="pr">267 ₽<s>297 ₽</s></div></div>
+    <div class="plan"><div class="t"><b>6 месяцев</b><span>84 ₽ в месяц</span></div><span class="off">−15%</span><div class="pr">504 ₽<s>594 ₽</s></div></div>
+    <div class="plan"><div class="t"><b>12 месяцев</b><span>79 ₽ в месяц</span></div><span class="off">−20%</span><div class="pr">950 ₽<s>1188 ₽</s></div></div>
+  </div>
+  <div class="card">
+    <ul class="terms">
+      <li>✅ В любой тариф входят все функции бота</li>
       <li>🎁 Первые 3 дня бесплатно</li>
       <li>💳 Оплата через СБП или банковской картой, платежи принимает ЮKassa</li>
       <li>🔄 Автопродление можно выключить в любой момент: команда /subscription в боте или «Настройки → Подписка» в мини-приложении</li>
